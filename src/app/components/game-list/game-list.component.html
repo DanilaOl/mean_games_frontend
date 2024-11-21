@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Игры</h4>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Разработчик</th>
+          <th>Рейтинг</th>
+          <th>Дата выхода</th>
+          <th>Функции</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td>{{game.name}}</td>
+          <td>{{game.developer}}</td>
+          <td>{{game.rating}}</td>
+          <td>{{game.releaseDate | date:'dd.MM.yyyy'}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="doDelete(game)">Удалить</button>
+            <button class="btn btn-primary" (click)="doUpdate(game)">Изменить</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
