@@ -1,12 +1,14 @@
-FROM node:18
+FROM node:18-alpine as build
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g @angular/cli
 RUN npm install
 
 COPY . .
+RUN npx ng build --configuration production
 
-EXPOSE 4200
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build app/dist/games_frontend/browser /usr/share/nginx/html
 
-CMD ["ng", "serve"]
+EXPOSE 80
