@@ -7,6 +7,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 4200
 
-CMD ["ng", "serve", "--port", "80"]
+CMD ["ng", "serve"]
