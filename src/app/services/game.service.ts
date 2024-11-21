@@ -8,7 +8,7 @@ import {Game} from '../classes/game'
 export class GameService {
   private game: Game;
   // private baseUri: string = "http://localhost:10000/";
-  private baseUri: string = "https://mean-games-backend.onrender.com/10000/";
+  private baseUri: string = "https://mean-games-backend.onrender.com:10000/";
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http:HttpClient) { }
